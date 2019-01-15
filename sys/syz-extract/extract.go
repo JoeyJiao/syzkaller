@@ -24,6 +24,7 @@ var (
 	flagOS        = flag.String("os", "", "target OS")
 	flagBuild     = flag.Bool("build", false, "regenerate arch-specific kernel headers")
 	flagSourceDir = flag.String("sourcedir", "", "path to kernel source checkout dir")
+	flagModuleDir = flag.String("moduledir", "", "path to kernel module source checkout dir")
 	flagBuildDir  = flag.String("builddir", "", "path to kernel build dir")
 	flagArch      = flag.String("arch", "", "comma-separated list of arches to generate (all by default)")
 )
@@ -31,6 +32,7 @@ var (
 type Arch struct {
 	target    *targets.Target
 	sourceDir string
+	moduleDir string
 	buildDir  string
 	build     bool
 	files     []*File
@@ -178,6 +180,7 @@ func createArches(OS string, archArray, files []string) ([]*Arch, error) {
 		arch := &Arch{
 			target:    target,
 			sourceDir: *flagSourceDir,
+			moduleDir: *flagModuleDir,
 			buildDir:  buildDir,
 			build:     *flagBuild,
 			done:      make(chan bool),

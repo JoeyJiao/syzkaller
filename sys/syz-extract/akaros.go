@@ -31,6 +31,7 @@ func (*akaros) processFile(arch *Arch, info *compiler.ConstInfo) (map[string]uin
 		"-DROS_KERNEL",
 		"-I", filepath.Join(dir, "kern", "include"),
 		"-I", filepath.Join(dir, "user", "parlib", "include"),
+		"-I", filepath.Join(arch.moduleDir, "include"),
 	}
 	for _, incdir := range info.Incdirs {
 		args = append(args, "-I"+filepath.Join(dir, incdir))

@@ -111,6 +111,7 @@ func (*linux) processFile(arch *Arch, info *compiler.ConstInfo) (map[string]uint
 		"-I" + buildDir + "/arch/" + headerArch + "/include/generated",
 		"-I" + buildDir + "/include",
 		"-I" + sourceDir + "/include",
+		"-I" + arch.moduleDir + "/include",
 		"-I" + sourceDir + "/arch/" + headerArch + "/include/uapi",
 		"-I" + buildDir + "/arch/" + headerArch + "/include/generated/uapi",
 		"-I" + sourceDir + "/include/uapi",

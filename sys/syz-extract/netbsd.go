@@ -62,6 +62,7 @@ func (*netbsd) processFile(arch *Arch, info *compiler.ConstInfo) (map[string]uin
 		"-I", filepath.Join(arch.sourceDir, "common", "include"),
 		"-I", filepath.Join(arch.sourceDir, "sys", "compat", "linux", "common"),
 		"-I", filepath.Join(arch.sourceDir, "include"),
+		"-I", filepath.Join(arch.moduleDir, "include"),
 		"-I", arch.buildDir,
 	}
 	for _, incdir := range info.Incdirs {

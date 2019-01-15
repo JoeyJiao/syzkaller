@@ -47,6 +47,7 @@ func (*openbsd) processFile(arch *Arch, info *compiler.ConstInfo) (map[string]ui
 		"-I", filepath.Join(arch.sourceDir, "sys", "arch", "amd64"),
 		"-I", filepath.Join(arch.sourceDir, "common", "include"),
 		"-I", filepath.Join(arch.sourceDir, "sys", "compat", "linux", "common"),
+		"-I", filepath.Join(arch.moduleDir, "include"),
 		"-I", arch.buildDir,
 	}
 	for _, incdir := range info.Incdirs {

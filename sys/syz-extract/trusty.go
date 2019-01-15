@@ -29,6 +29,7 @@ func (*trusty) processFile(arch *Arch, info *compiler.ConstInfo) (map[string]uin
 		"-fmessage-length=0",
 		"-I", filepath.Join(dir, "external", "lk", "include", "shared"),
 		"-I", filepath.Join(dir, "trusty", "user", "base", "include"),
+		"-I", filepath.Join(arch.moduleDir, "include"),
 	}
 	for _, incdir := range info.Incdirs {
 		args = append(args, "-I"+filepath.Join(dir, incdir))

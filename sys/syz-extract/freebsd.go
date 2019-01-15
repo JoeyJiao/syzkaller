@@ -45,6 +45,7 @@ func (*freebsd) processFile(arch *Arch, info *compiler.ConstInfo) (map[string]ui
 		"-I", filepath.Join(arch.sourceDir, "sys"),
 		"-I", filepath.Join(arch.sourceDir, "sys", "sys"),
 		"-I", filepath.Join(arch.sourceDir, "sys", "amd64"),
+		"-I", filepath.Join(arch.moduleDir, "include"),
 		"-I", arch.buildDir,
 	}
 	for _, incdir := range info.Incdirs {
