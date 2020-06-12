@@ -176,6 +176,7 @@ func (rg *ReportGenerator) generate(w io.Writer, progs []Prog, files map[string]
 			remain = filepath.Clean(strings.TrimPrefix(fname, rg.buildDir))
 			fname = filepath.Join(rg.srcDir, remain)
 		default:
+			continue
 			return fmt.Errorf("path %q doesn't match build dir %q nor obj dir %q",
 				fname, rg.buildDir, rg.objDir)
 		}
